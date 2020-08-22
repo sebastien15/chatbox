@@ -1,0 +1,98 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .chatOpener{
+    right: 1%; 
+    bottom: 1%;
+  }
+  
+  /* drop down starts */
+  
+  .dropdown{
+    opacity: 0;
+    height: 0px;
+    pointer-events: none;
+  }
+  .dropItem{
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* drop down ends */
+  .active{
+    background-color: rgba(51,102,255);
+  }
+
+
+  /* chatbox */
+  .chatBox{
+    bottom:5%;
+    right:2%;
+    background-image: url("artwork.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 80% 30%;
+  }
+  .chatDropdown{
+    top: 10%; 
+    left:5%; 
+    width:200px;
+    z-index:10000;
+  }
+  .chatBox main{
+    max-height: 60vh;
+  }
+  .chatBox footer{
+    bottom: 0%;
+  }
+
+  /* animation styles */
+
+
+ /* language dropdown animation */
+
+@keyframes dropBox{
+    0%{
+        height: 0px;
+        pointer-events: none;
+        }
+    90%{
+        height: 140px;
+        opacity: 1;
+        }
+    100%{
+        height: 130px;
+        opacity: 1;
+        pointer-events: all;
+        }
+}
+
+.dropdownA{
+    animation: dropBox 1s 1 0.005s ease-in-out forwards;
+}
+
+@keyframes dropItemAnimation{
+    0%{
+        transform: translateY(-5px);
+        opacity: 0;
+        pointer-events: none;
+        }
+    91%{
+        transform: translateY(2px);
+        opacity: 1;
+        pointer-events: all;
+        }
+    100%{
+        opacity: 1;
+        pointer-events: all;
+        }
+}
+
+.dropItemA{
+    animation: dropItemAnimation 1s 1 1s ease-in forwards;
+}
+
+/*  language dropdown animation ends */
