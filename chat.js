@@ -29,42 +29,44 @@ dropTriggerChat.addEventListener('click',()=>{
 let chatOpener = document.querySelectorAll('.chatOpener')
 let chatCloser = document.querySelector('#chatCloser')
 let chatBox    = document.querySelectorAll('.chatBox')
-// let chatImg    = document.querySelector('.artimage')
+setTimeout(() => {
+    console.log("offset hei" +chatBox[0].clientHeight)
+    console.log("offset wid" +chatBox[0].clientWidth)
+}, 4000);
 let clicked = true
 function chatFull() {
     chatBox.forEach(element => { 
-        // let chatFooter    = document.querySelector('.chatBox footer')
         if (clicked) {
-            element.classList.add('min-h-full','min-w-full','z-50','top-0','left-0','bg-white')
-            // chatFooter.classList.remove('relative')
-            // chatFooter.classList.add('absolute')
-            // chatFooter.classList.add('bottom-0')
-            // chatImg.classList.add('ml-40')
-            element.style.left = "0px";
-            element.style.top = "0px";
+            element.classList.add('min-h-full','min-w-full','z-50','top-0','left-0','bg-white');
         }else{
             element.classList.remove('min-h-full','min-w-full','z-50','top-0','left-0','bg-white')
-            // chatImg.classList.remove('ml-40')
-            // chatFooter.classList.remove('absolute')
-            // chatFooter.classList.remove('bottom-0')
-            // chatFooter.classList.add('relative')
             if (pos4 > window.innerHeight/2) {
+                chatBox[0].style.top = "";
+                chatBox[0].style.bottom = (chatBox[0].offsetBottom - pos4) + 'px';
+            }else if (pos4 == 0){
                 chatBox[0].style.top = "";
                 chatBox[0].style.bottom = (chatBox[0].offsetBottom - pos4) + 'px';
             }else{
                 chatBox[0].style.bottom = '';
                 chatBox[0].style.top = pos4 + 'px';
+                console.log(pos4)
             }
             chatBoxWidth = chatBox[0].offsetWidth
             if (window.innerWidth - pos3 < chatBoxWidth) {
                 chatBox[0].style.right = '0px';
                 chatBox[0].style.left  = "";
+            }else if (pos3 == 0){
+                chatBox[0].style.right = '0px';
+                chatBox[0].style.left  = "";
             }else{
                 chatBox[0].style.left = pos3 + 'px';
+                console.log('pos 3 is' + pos3)
             }
         }
     });
     clicked = !clicked
+    console.log(clicked)
+    console.log('working')
 }
 showOpener(2)
 function showOpener(timer) {
