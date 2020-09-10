@@ -30,11 +30,12 @@ let chatOpener = document.querySelectorAll('.chatOpener')
 let chatCloser = document.querySelector('#chatCloser')
 let chatBox    = document.querySelectorAll('.chatBox')
 setTimeout(() => {
-    console.log("offset hei" +chatBox[0].clientHeight)
-    console.log("offset wid" +chatBox[0].clientWidth)
+    // console.log("offset hei" +chatBox[0].clientHeight)
+    // console.log("offset wid" +chatBox[0].clientWidth)
 }, 4000);
 let clicked = true
 function chatFull() {
+    console.log('clicked')
     chatBox.forEach(element => { 
         if (clicked) {
             element.classList.add('min-h-full','min-w-full','z-50','top-0','left-0','bg-white');
@@ -49,7 +50,6 @@ function chatFull() {
             }else{
                 chatBox[0].style.bottom = '';
                 chatBox[0].style.top = pos4 + 'px';
-                console.log(pos4)
             }
             chatBoxWidth = chatBox[0].offsetWidth
             if (window.innerWidth - pos3 < chatBoxWidth) {
@@ -60,13 +60,10 @@ function chatFull() {
                 chatBox[0].style.left  = "";
             }else{
                 chatBox[0].style.left = pos3 + 'px';
-                console.log('pos 3 is' + pos3)
             }
         }
     });
     clicked = !clicked
-    console.log(clicked)
-    console.log('working')
 }
 showOpener(2)
 function showOpener(timer) {
@@ -154,7 +151,6 @@ function dragElement(elmnt) {
   function closeDragElement() {
     // stop moving when mouse button is released:
     chatBox[0].classList.toggle('hidden')
-    // alert('working')
     document.onmouseup = null;
     document.onmousemove = null;
   }
